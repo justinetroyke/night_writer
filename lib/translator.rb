@@ -7,11 +7,11 @@ class Translator
   end
 
   def output
-    output_3 = puts @input
-    out 3.times do
-      output_3
-    end
-    out
-  end
+     output_3 = []
+     3.times do
+       output_3 << "#{@input}"
+     end
+     output_3.join("\n")
+   end 
 
 end
