@@ -1,7 +1,7 @@
 class FileReader
 
-  def initialize
-    
-  end
-
+  def read(filename)
+   filename = ARGV[0]
+   FileReader.read(filename)
+ end
 end
