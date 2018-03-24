@@ -1,4 +1,5 @@
 require './lib/night_writer'
+
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'

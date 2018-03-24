@@ -19,9 +19,9 @@ class TranslatorTest < Minitest::Test
   end
 
   def test_input_prints_to_screen_to_three_repeated_rows
-    translator = Translator.new("hello world")
+     translator = Translator.new("hello world")
 
-    assert_equal "hello world", translator.output
-  end
+     assert_equal "hello world\nhello world\nhello world", translator.output
+   end
 
 end
