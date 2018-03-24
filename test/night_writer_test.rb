@@ -21,7 +21,7 @@ class NightWriterTest < Minitest::Test
   def test_input_prints_to_screen_to_three_repeated_rows
     translator = NightWriter.new("hello world")
 
-    assert_equal "hello world\n" "hello world\n" "hello world", translator.output
+    assert_equal "hello world\nhello world\nhello world", translator.output
   end
 
 end

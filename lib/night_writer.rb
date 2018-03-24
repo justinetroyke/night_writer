@@ -7,10 +7,11 @@ class NightWriter
   end
 
   def output
-    out_3 = 3.times do
-      puts @input
+    output_3 = []
+    3.times do
+      output_3 << "#{@input}"
     end
-      return out_3
+    output_3.join("\n")
   end
 
 end
