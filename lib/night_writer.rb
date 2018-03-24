@@ -1,17 +1,7 @@
 class NightWriter
+  attr_reader :reader 
 
-  attr_reader :input
-
-  def initialize(input)
-    @input = input
+  def initialize
+    @reader = FileReader.new
   end
-
-  def output
-    output_3 = []
-    3.times do
-      output_3 << "#{@input}"
-    end
-    output_3.join("\n")
-  end
-
 end

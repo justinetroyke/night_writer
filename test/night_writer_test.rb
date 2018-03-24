@@ -7,21 +7,15 @@ require 'pry'
 class NightWriterTest < Minitest::Test
 
   def test_it_exists
-    translator = NightWriter.new("hello world")
+    night_writer = NightWriter.new
 
-    assert NightWriter, translator
+    assert_instance_of NightWriter, night_writer
   end
 
-  def test_it_initializes_with_input
-    translator = NightWriter.new("hello world")
+  def test_it_initializes_with_a_file_reader
+    night_writer = NightWriter.new
 
-    assert_equal "hello world", translator.input
+    assert_instance_of NightWriter, night_writer
+    assert_instance_of FileReader, reader
   end
-
-  def test_input_prints_to_screen_to_three_repeated_rows
-    translator = NightWriter.new("hello world")
-
-    assert_equal "hello world\nhello world\nhello world", translator.output
-  end
-
 end
