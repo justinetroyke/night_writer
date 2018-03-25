@@ -47,14 +47,10 @@ class Translator
      split_letters = letters.chars
      out = ""
      split_letters.each do |letter|
-        @braille_alphabet.map do |key|
-          if key == letter
-            out = out + braille_alphabet[letter][0]
-          end
-        end
-      end
+        out = out + braille_alphabet[letter][0]
+     end
       out
-    end
+   end
 
 
 
