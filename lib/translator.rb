@@ -35,21 +35,41 @@ class Translator
     }
   end
 
-  def output
-     output_3 = []
-     3.times do
-       output_3 << "#{@input}"
-     end
-     output_3.join("\n")
-   end
+  # def output
+  #    output_3 = []
+  #    3.times do
+  #      output_3 << "#{@input}"
+  #    end
+  #    output_3.join("\n")
+  #  end
 
    def top(letters)
      split_letters = letters.chars
      out = ""
      split_letters.each do |letter|
-      key = letter
-      out = @braille_alphabet.values[0][0]
-      end
-      out
-    end
+        out = out + braille_alphabet[letter][0]
+     end
+     out
+   end
+
+   def mid(letters)
+     split_letters = letters.chars
+     out = ""
+     split_letters.each do |letter|
+       out = out + braille_alphabet[letter][1]
+     end
+     out
+   end
+
+   def bottom(letters)
+     split_letters = letters.chars
+     out = ""
+     split_letters.each do |letter|
+       out = out + braille_alphabet[letter][2]
+     end
+     out
+   end
+
+
+
 end
