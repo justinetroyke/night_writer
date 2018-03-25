@@ -49,7 +49,25 @@ class Translator
      split_letters.each do |letter|
         out = out + braille_alphabet[letter][0]
      end
-      out
+     out
+   end
+
+   def mid(letters)
+     split_letters = letters.chars
+     out = ""
+     split_letters.each do |letter|
+       out = out + braille_alphabet[letter][1]
+     end
+     out
+   end
+
+   def bottom(letters)
+     split_letters = letters.chars
+     out = ""
+     split_letters.each do |letter|
+       out = out + braille_alphabet[letter][2]
+     end
+     out
    end
 
 
