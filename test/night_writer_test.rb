@@ -19,4 +19,5 @@ class NightWriterTest < Minitest::Test
     assert_instance_of NightWriter, night_writer
     assert_instance_of FileReader, night_writer.reader
   end
+
 end
