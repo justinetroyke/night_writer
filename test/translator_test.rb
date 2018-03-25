@@ -12,17 +12,17 @@ class TranslatorTest < Minitest::Test
     assert Translator, translator
   end
 
-  # def test_it_initializes_with_input
-  #   translator = Translator.new("hello world")
-  #
-  #   assert_equal "hello world", translator.input
-  # end
-  #
-  # def test_input_prints_to_screen_to_three_repeated_rows
-  #    translator = Translator.new("hello world")
-  #
-  #    assert_equal "hello world\nhello world\nhello world", translator.output
-  #  end
+  def test_it_initializes_with_input
+    translator = Translator.new("hello world")
+
+    assert_equal "hello world", translator.input
+  end
+
+  def test_input_prints_to_screen_to_three_repeated_rows
+     translator = Translator.new("hello world")
+
+     assert_equal "hello world\nhello world\nhello world", translator.output
+   end
 
    def test_it_has_braille_alphabet
       translator = Translator.new("hello world")
@@ -57,4 +57,9 @@ class TranslatorTest < Minitest::Test
      assert_equal '..''0.', translator.bottom('fr')
    end
 
+   def test_it_outputs_a_6_x_3_grid_for_a_word
+      translator = Translator.new("hello world")
+
+      assert_equal "0.0.0.0.0....00.0.0.00(\n)00.00.0..0..00.0000..0(\n)....0.0.0....00.0.0...", translator
+   end
 end
