@@ -1,16 +1,17 @@
-require_relative 'braille_alphabet'
+# require_relative 'braille_alphabet'
 
-class Translate::BrailleAlphabet
+class Translate
+# ::BrailleAlphabet
+alpha = {
+        "a" => ["0.", "..", ".."],
+        "b" => ["0.", "0.", ".."]
+      }
 
-letters = "abab".chars
+letters = ["#{alpha["a"]}, #{alpha["b"]}"]
 
 def top
   letters.each do |letter|
     letter[0]
-
-      # key = letter
-      # output_char = braille_alphabet.values_at(key, 0)
-      # output_char
   end
 end
 
@@ -30,15 +31,9 @@ puts letters.top
 puts letters.mid
 puts letters.bottom
 
-# top = a.take[0]
-# middle = a.take[1]
-# bottom = a.take[2]
-
 end
 
 
-#
-# puts "#{a[0]}#{b[0]}"
-# puts "#{a[1]}#{b[1]}"
-# puts "#{a[2]}#{b[2]}"
-# "Hey".chars = letters
+# key = letter
+# output_char = braille_alphabet.values_at(key, 0)
+# output_char
