@@ -24,4 +24,10 @@ class TranslatorTest < Minitest::Test
      assert_equal "hello world\nhello world\nhello world", translator.output
    end
 
+   def test_it_converts_one_letter_to_the_top_row_of_braille_character
+     translator = Translator.new("hello world")
+
+     assert_equal "0.", translator.top('a')
+   end
+
 end
