@@ -1,18 +1,5 @@
-# class NightWriter
-#   attr_reader :reader
-#
-#   # def initialize
-#   #   @reader = FileReader.new
-#   # end
-#
-#   def try_it
-    # a = "0.\n..\n.."
-    # b = "0.\n0.\n"
-    # ab
-#   end
-#
-# end
-letters = "ab".chars
+class NightWriter
+  attr_reader :reader
 
 a = ["0.", "..", ".."]
 b = ["0.", "0.", ".."]
