@@ -16,5 +16,5 @@ class NightWriter
    File.write(ARGV[1], output_braille)
 
    # puts "Created '#{ARGV[1]}' containing #{to_translate.strip.length} characters"
- end
+
 end

@@ -52,9 +52,8 @@ class TranslatorTest < Minitest::Test
   end
 
   def test_it_outputs_a_6_x_3_grid_for_a_word
-    skip
     translator = Translator.new("hello world")
 
-    assert_equal "0.0.0.0.0....00.0.0.00(\n)00.00.0..0..00.0000..0(\n)....0.0.0....00.0.0...", translator
+    assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator
    end
 end
