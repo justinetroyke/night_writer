@@ -1,4 +1,4 @@
-require './lib/file_reader'
+require './lib/runner'
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
