@@ -49,7 +49,7 @@ class TranslatorTest < Minitest::Test
      assert_equal '0.''00', translator.mid('fr')
    end
 
-   def test_can_convert_two_letters_to_middle_row_of_braille
+   def test_can_convert_three_letters_to_bottom_row_of_braille
      translator = Translator.new("hello world")
 
      assert_equal '00''0.', translator.top('fr')
