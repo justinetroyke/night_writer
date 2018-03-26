@@ -1,5 +1,5 @@
 require './lib/night_writer'
-require './lib/file_reader'
+require './lib/runner'
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
@@ -19,5 +19,4 @@ class NightWriterTest < Minitest::Test
     assert_instance_of NightWriter, night_writer
     assert_instance_of FileReader, night_writer.reader
   end
-
 end
