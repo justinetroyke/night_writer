@@ -35,30 +35,46 @@ class Translator
     }
   end
 
-  def top
-    split_letters = @input.chars
-    out = ""
-      split_letters.each do |letter|
-        out = out + braille_alphabet[letter][0]
+  def encode
+    split_chars = @input.chars
+    out = ''
+
+    braille_code = braille_alphabet[@input]
+    braille_code.each do |s|
+      if out == ''
+        out = s
+      else
+        out = "#{out}\n#{s}"
       end
+    end
     out
   end
 
-  def mid
-    split_letters = @input.chars
-    out = ""
-      split_letters.each do |letter|
-        out = out + braille_alphabet[letter][1]
-      end
-    out
-  end
 
-  def bottom
-     split_letters = @input.chars
-     out = ""
-      split_letters.each do |letter|
-        out = out + braille_alphabet[letter][2]
-      end
-     out
-  end
+  # def top
+  #   split_letters = @input.chars
+  #   out = ""
+  #     split_letters.each do |letter|
+  #       out = out + braille_alphabet[letter][0]
+  #     end
+  #   out
+  # end
+  #
+  # def mid
+  #   split_letters = @input.chars
+  #   out = ""
+  #     split_letters.each do |letter|
+  #       out = out + braille_alphabet[letter][1]
+  #     end
+  #   out
+  # end
+  #
+  # def bottom
+  #    split_letters = @input.chars
+  #    out = ""
+  #     split_letters.each do |letter|
+  #       out = out + braille_alphabet[letter][2]
+  #     end
+  #    out
+  # end
 end
