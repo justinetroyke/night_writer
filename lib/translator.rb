@@ -5,9 +5,6 @@ class Translator
 
   def initialize(input)
     @input = input
-    @top_out = ""
-    @mid_out = ""
-    @bottom_out = ""
     @braille_alphabet = {
       "a"=>['0.','..','..'],
       "b"=>['0.','0.','..'],
@@ -44,7 +41,7 @@ class Translator
       split_letters.each do |letter|
         out = out + braille_alphabet[letter][0]
       end
-    @top_out << out
+    out
   end
 
   def mid
@@ -53,7 +50,7 @@ class Translator
       split_letters.each do |letter|
         out = out + braille_alphabet[letter][1]
       end
-    @mid_out << out
+    out
   end
 
   def bottom
@@ -62,6 +59,6 @@ class Translator
       split_letters.each do |letter|
         out = out + braille_alphabet[letter][2]
       end
-    @bottom_out << out
+     out
   end
 end
