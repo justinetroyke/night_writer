@@ -56,21 +56,19 @@ class Translator
   end
 
   def mid
-    split_letters = @input.chars
-    out = ""
-      split_letters.each do |letter|
-        out = out + braille_alphabet[letter][1]
-      end
-    out
+    out_mid = ''
+    convert_to_braille.each do |element|
+      out_mid << element[1]
+    end
+    out_mid
   end
 
   def bottom
-     split_letters = @input.chars
-     out = ""
-      split_letters.each do |letter|
-        out = out + braille_alphabet[letter][2]
+     out_bottom = ''
+      convert_to_braille.each do |element|
+        out_bottom << element[2]
       end
-     out
+     out_bottom
   end
 
   def result
