@@ -61,7 +61,7 @@ class TranslatorTest < Minitest::Test
     translator = Translator.new("he")
 
     assert_equal "0.0.\n00.0\n....", translator.result
-   end
+  end
 
    def test_it_outputs_a_3_row_grid_for_a_word
      translator = Translator.new("hello")
@@ -75,7 +75,14 @@ class TranslatorTest < Minitest::Test
      assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator.result
    end
 
+   def test_message_is_all_lowercase_and_has_shift_for_capitals
+     translator = Translator.new("Ab")
+
+     assert_equal ["shift","a","b"], translator.lower_case
+   end
+
    def test_it_capitalizes_one_letter
+     skip
      translator = Translator.new("A")
 
      assert_equal "..0.\n....\n.0..", translator.result
