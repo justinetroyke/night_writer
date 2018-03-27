@@ -34,7 +34,6 @@ class TranslatorTest < Minitest::Test
     translator = Translator.new("ab")
 
     assert_equal [['0.','..','..'],['0.','0.','..']], translator.convert_to_braille
-  end
 
   def test_it_converts_one_letter_to_the_top_row_of_braille_character
     translator = Translator.new('ab')
