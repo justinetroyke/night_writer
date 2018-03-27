@@ -6,7 +6,7 @@ require './lib/output'
 
   to_translate = File.read(file_text)
   message = Translator.new(to_translate)
-  message = translator.result
+  message = translator.braille_result
 
 
   output_braille = Output.new.print(message)
