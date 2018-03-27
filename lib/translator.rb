@@ -76,11 +76,4 @@ class Translator
   def result
     "#{top}\n#{mid}\n#{bottom}"
   end
-
-  def result
-    top + "\n" + mid + "\n" + bottom + "\n"
-  end
-
-  
-
 end
