@@ -87,7 +87,7 @@ class Translator
      out_bottom
   end
 
-  def result
+  def braille_result
     "#{top}\n#{mid}\n#{bottom}"
   end
 end
