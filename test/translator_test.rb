@@ -31,13 +31,13 @@ class TranslatorTest < Minitest::Test
   end
 
   def test_the_downcase_characters_can_be_translated
+    skip
     translator = Translator.new("ab")
 
     assert_equal "0.0.\n..0.\n....", translator.convert_to_braille
   end
 
   def test_it_converts_one_letter_to_the_top_row_of_braille_character
-    skip
     translator = Translator.new('a')
 
     assert_equal "0.", translator.top

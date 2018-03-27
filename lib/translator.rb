@@ -47,34 +47,33 @@ class Translator
     end
   end
 
-  # def top
-  #   split_letters = @input.chars
-  #   out = ""
-  #     split_letters.each do |letter|
-  #       out = out + braille_alphabet[letter][0]
-  #     end
-  #   out
-  # end
-  #
-  # def mid
-  #   split_letters = @input.chars
-  #   out = ""
-  #     split_letters.each do |letter|
-  #       out = out + braille_alphabet[letter][1]
-  #     end
-  #   out
-  # end
-  #
-  # def bottom
-  #    split_letters = @input.chars
-  #    out = ""
-  #     split_letters.each do |letter|
-  #       out = out + braille_alphabet[letter][2]
-  #     end
-  #    out
-  # end
-  #
-  # def result
-  #   "#{top}\n#{mid}\n#{bottom}"
-  # end
+  def top
+    out = ""
+      out_top = convert_to_braille.each do |element|
+        out_top << element[0]
+      end
+    out_top
+  end
+
+  def mid
+    split_letters = @input.chars
+    out = ""
+      split_letters.each do |letter|
+        out = out + braille_alphabet[letter][1]
+      end
+    out
+  end
+
+  def bottom
+     split_letters = @input.chars
+     out = ""
+      split_letters.each do |letter|
+        out = out + braille_alphabet[letter][2]
+      end
+     out
+  end
+
+  def result
+    "#{top}\n#{mid}\n#{bottom}"
+  end
 end
