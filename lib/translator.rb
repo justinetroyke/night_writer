@@ -31,7 +31,8 @@ class Translator
       "w"=>['.0','00','.0'],
       "x"=>['00','..','00'],
       "y"=>['00','.0','00'],
-      "z"=>['0.','.0','00']
+      "z"=>['0.','.0','00'],
+      " "=>["  ", "  ", "  "]
     }
   end
 
@@ -61,4 +62,11 @@ class Translator
       end
      out
   end
+
+  def result
+    top + "\n" + mid + "\n" + bottom + "\n"
+  end
+
+  
+
 end

@@ -30,16 +30,14 @@ class TranslatorTest < Minitest::Test
     assert_equal "0.", translator.top
   end
 
-  def test_can_convert_two_letters_to_top_row_of_braille
-    translator = Translator.new('am')
+  # def test_can_convert_two_letters_to_top_row_of_braille
+  #   translator = Translator.new('am')
+  #   assert_equal ""
 
-<<<<<<< HEAD
-   def test_can_convert_three_letters_to_bottom_row_of_braille
-     translator = Translator.new("hello world")
-=======
-    assert_equal '0.''00', translator.top
-  end
->>>>>>> cd458e4270ded699d7395d7dab62f0f85e3e1782
+  #  def test_can_convert_three_letters_to_bottom_row_of_braille
+  #   translator = Translator.new("hello world")
+  #   assert_equal '0.''00', translator.top
+  # end
 
   def test_can_convert_two_letters_to_middle_row_of_braille
     translator = Translator.new('fr')
@@ -51,15 +49,31 @@ class TranslatorTest < Minitest::Test
   def test_can_convert_two_letters_to_middle_row_of_braille
     translator = Translator.new('fr')
 
-    assert_equal '00''0.', translator.top
-    assert_equal '0.''00', translator.mid
-    assert_equal '..''0.', translator.bottom
+    assert_equal "000.", translator.top
+    assert_equal "0.00", translator.mid
+    assert_equal "..0.", translator.bottom
+    puts translator.result
   end
 
-  def test_it_outputs_a_6_x_3_grid_for_a_word
-    skip
-    translator = Translator.new("hello world")
+  def test_functionality_of_space
+    translator = Translator.new('f r')
 
-    assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator
-   end
+    assert_equal "00  0.", translator.top
+    assert_equal "0.  00", translator.mid
+    assert_equal "..  0.", translator.bottom
+  end
+
+  def test_functionality_of_double_space
+    translator = Translator.new('f  r')
+
+    assert_equal "00    0.", translator.top
+    assert_equal "0.    00", translator.mid
+    assert_equal "..    0.", translator.bottom
+  end
+
+  def test_char_measurement
+    
+
+
+
 end
