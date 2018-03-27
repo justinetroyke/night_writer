@@ -94,4 +94,24 @@ class TranslatorTest < Minitest::Test
 
      assert_equal "..0.\n....\n.0..", translator.braille_result
    end
+
+   def test_it__can_convert_a_symbol
+     translator = Translator.new("?")
+
+     assert_equal "..", translator.top
+     assert_equal "0.", translator.mid
+     assert_equal "00", translator.bottom
+     assert_equal "..\n0.\n00", translator.braille_result
+   end
+
+
+   def test_it_can_convert_all_symbols
+     translator = Translator.new("!',-.?")
+
+     assert_equal "............", translator.top
+     assert_equal "00..0...000.", translator.mid
+     assert_equal "0.0...00.000", translator.bottom
+     assert_equal "............\n00..0...000.\n0.0...00.000", translator.braille_result
+   end
+
 end
