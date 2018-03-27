@@ -34,6 +34,7 @@ class TranslatorTest < Minitest::Test
     translator = Translator.new("ab")
 
     assert_equal [['0.','..','..'],['0.','0.','..']], translator.convert_to_braille
+  end
 
   def test_it_converts_one_letter_to_the_top_row_of_braille_character
     translator = Translator.new('ab')
@@ -72,5 +73,11 @@ class TranslatorTest < Minitest::Test
      translator = Translator.new("hello world")
 
      assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator.result
+   end
+
+   def test_it_capitalizes_one_letter
+     translator = Translator.new("A")
+
+     assert_equal "..0.\n....\n.0..", translator.result
    end
 end

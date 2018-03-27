@@ -45,6 +45,9 @@ class Translator
     braille_code = split_message.map do |letter|
       if letter == letter.downcase
         @braille_alphabet[letter]
+      elsif letter == letter.upcase
+        
+
       end
     end
   end
