@@ -82,7 +82,6 @@ class TranslatorTest < Minitest::Test
    end
 
    def test_it_capitalizes_one_letter
-     skip
      translator = Translator.new("A")
 
      assert_equal "..0.\n....\n.0..", translator.result

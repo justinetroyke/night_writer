@@ -43,19 +43,20 @@ class Translator
 
   def lower_case
     message_to_convert = []
-    split_message.map do |letter|
-      if letter == letter.upcase
-        message_to_convert << "shift"
-        message_to_convert << letter.downcase
-      else letter == letter.downcase
+    split_message.each do |letter|
+      if letter == letter.downcase
         message_to_convert << letter
+      elsif
+        letter == letter.upcase
+          message_to_convert << "shift"
+          message_to_convert << letter.downcase
       end
-      message_to_convert
     end
+    message_to_convert
   end
 
   def convert_to_braille
-    braille_code = split_message.map do |letter|
+    braille_code = lower_case.map do |letter|
       if letter == letter.downcase
         @braille_alphabet[letter]
       end
