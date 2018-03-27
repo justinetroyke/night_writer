@@ -31,16 +31,15 @@ class TranslatorTest < Minitest::Test
   end
 
   def test_the_downcase_characters_can_be_translated
-    skip
     translator = Translator.new("ab")
 
-    assert_equal "0.0.\n..0.\n....", translator.convert_to_braille
+    assert_equal [['0.','..','..'],['0.','0.','..']], translator.convert_to_braille
   end
 
   def test_it_converts_one_letter_to_the_top_row_of_braille_character
-    translator = Translator.new('a')
+    translator = Translator.new('ab')
 
-    assert_equal "0.", translator.top
+    assert_equal "0.0.", translator.top
   end
 
   def test_can_convert_two_letters_to_top_row_of_braille

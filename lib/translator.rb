@@ -48,10 +48,10 @@ class Translator
   end
 
   def top
-    out = ""
-      out_top = convert_to_braille.each do |element|
+    out_top = ''
+    convert_to_braille.each do |element|
         out_top << element[0]
-      end
+    end
     out_top
   end
 
