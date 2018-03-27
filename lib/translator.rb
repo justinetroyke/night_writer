@@ -31,34 +31,48 @@ class Translator
       "w"=>['.0','00','.0'],
       "x"=>['00','..','00'],
       "y"=>['00','.0','00'],
-      "z"=>['0.','.0','00']
+      "z"=>['0.','.0','00'],
+      " "=>['..','..','..']
     }
   end
 
-  def top
-    split_letters = @input.chars
-    out = ""
-      split_letters.each do |letter|
-        out = out + braille_alphabet[letter][0]
+  def split_message
+    @input.split('')
+  end
+
+  def convert_to_braille
+    braille_code = split_message.map do |letter|
+      if letter == letter.downcase
+        @braille_alphabet[letter]
       end
-    out
+    end
+  end
+
+  def top
+    out_top = ''
+    convert_to_braille.each do |element|
+        out_top << element[0]
+    end
+    out_top
   end
 
   def mid
-    split_letters = @input.chars
-    out = ""
-      split_letters.each do |letter|
-        out = out + braille_alphabet[letter][1]
-      end
-    out
+    out_mid = ''
+    convert_to_braille.each do |element|
+      out_mid << element[1]
+    end
+    out_mid
   end
 
   def bottom
-     split_letters = @input.chars
-     out = ""
-      split_letters.each do |letter|
-        out = out + braille_alphabet[letter][2]
+     out_bottom = ''
+      convert_to_braille.each do |element|
+        out_bottom << element[2]
       end
-     out
+     out_bottom
+  end
+
+  def result
+    "#{top}\n#{mid}\n#{bottom}"
   end
 end
