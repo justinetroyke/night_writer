@@ -34,6 +34,7 @@ class TranslatorTest < Minitest::Test
     translator = Translator.new("ab")
 
     assert_equal [['0.','..','..'],['0.','0.','..']], translator.convert_to_braille
+  end
 
   def test_it_converts_one_letter_to_the_top_row_of_braille_character
     translator = Translator.new('ab')
@@ -59,18 +60,38 @@ class TranslatorTest < Minitest::Test
   def test_it_outputs_a_6_x_3_grid_for_two_letters
     translator = Translator.new("he")
 
-    assert_equal "0.0.\n00.0\n....", translator.result
-   end
+    assert_equal "0.0.\n00.0\n....", translator.braille_result
+  end
 
    def test_it_outputs_a_3_row_grid_for_a_word
      translator = Translator.new("hello")
 
-     assert_equal "0.0.0.0.0.\n00.00.0..0\n....0.0.0.", translator.result
+     assert_equal "0.0.0.0.0.\n00.00.0..0\n....0.0.0.", translator.braille_result
    end
+
+    def test_it_can_space
+      translator = Translator.new(" ")
+      translator_2 = Translator.new("h e")
+
+      assert_equal "..\n..\n..", translator.braille_result
+      assert_equal "0...0.\n00...0\n......", translator_2.braille_result
+    end
 
    def test_it_outputs_3_row_grid_for_phrase
      translator = Translator.new("hello world")
 
-     assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator.result
+     assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator.braille_result
+   end
+
+   def test_message_is_all_lowercase_and_has_shift_for_capitals
+     translator = Translator.new("Ab")
+
+     assert_equal ["shift","a","b"], translator.lower_case
+   end
+
+   def test_it_capitalizes_one_letter
+     translator = Translator.new("A")
+
+     assert_equal "..0.\n....\n.0..", translator.braille_result
    end
 end
