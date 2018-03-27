@@ -24,17 +24,19 @@ class TranslatorTest < Minitest::Test
     assert_instance_of Hash, translator.braille_alphabet
   end
 
-  def test_it_converts_one_letter_to_braille_character
-    translator = Translator.new('a')
+  def test_split_characters
+    translator = Translator.new("ab")
 
-    assert_equal "0.\n..\n..", translator.encode
+    assert_equal ["a", "b"], translator.split_message
   end
 
-  def test_it_can_do_multiple_letters
-    translator = Translator.new('ab')
+  def test_the_downcase_characters_can_be_translated
+    translator = Translator.new("ab")
 
-    assert_equal "0.0.\n..0.\n....", translator.encode
+    assert_equal "0.0.\n..0.\n....", translator.convert_to_braille
   end
+
+  def test_it_can_move
 
   def test_it_converts_one_letter_to_the_top_row_of_braille_character
     skip
@@ -71,6 +73,6 @@ class TranslatorTest < Minitest::Test
     skip
     translator = Translator.new("hello world")
 
-    assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator
+    assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator.result
    end
 end

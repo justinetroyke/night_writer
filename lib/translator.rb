@@ -35,20 +35,18 @@ class Translator
     }
   end
 
-  def encode
-    split_chars = @input.chars
-    out = ''
+  def split_message
+    @input.split('')
+  end
 
-    braille_code = braille_alphabet[@input]
-    braille_code.each do |s|
-      if out == ''
-        out = s
-      else
-        out = "#{out}\n#{s}"
+  def convert_to_braille
+    braille_code = split_message.map do |letter|
+      if letter == letter.downcase
+        @braille_alphabet[letter]
       end
     end
-    out
   end
+
 
 
   # def top
@@ -76,5 +74,9 @@ class Translator
   #       out = out + braille_alphabet[letter][2]
   #     end
   #    out
+  # end
+  #
+  # def result
+  #   "#{top}\n#{mid}\n#{bottom}"
   # end
 end
