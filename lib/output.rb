@@ -1,6 +1,6 @@
 class Output
 
-  def initialize
+  def initialize(braille_code)
 
   end
 end

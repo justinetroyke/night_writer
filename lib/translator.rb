@@ -47,8 +47,6 @@ class Translator
     end
   end
 
-
-
   # def top
   #   split_letters = @input.chars
   #   out = ""

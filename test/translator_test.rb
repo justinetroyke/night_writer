@@ -36,8 +36,6 @@ class TranslatorTest < Minitest::Test
     assert_equal "0.0.\n..0.\n....", translator.convert_to_braille
   end
 
-  def test_it_can_move
-
   def test_it_converts_one_letter_to_the_top_row_of_braille_character
     skip
     translator = Translator.new('a')

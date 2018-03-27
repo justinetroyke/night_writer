@@ -9,7 +9,7 @@ class NightWriter
 
   to_translate = File.read(file_text)
 
-  message = Translator.new(to_translate)
+  message = Translator.new.convert_to_braille(to_translate)
   output_braille = Output.new.print(message)
 
 
