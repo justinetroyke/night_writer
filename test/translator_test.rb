@@ -113,5 +113,5 @@ class TranslatorTest < Minitest::Test
      assert_equal "0.0...00.000", translator.bottom
      assert_equal "............\n00..0...000.\n0.0...00.000", translator.braille_result
    end
-
+  
 end
