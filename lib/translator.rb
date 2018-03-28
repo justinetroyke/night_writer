@@ -63,13 +63,9 @@ class Translator
 
   def convert_to_braille
     braille_code = lower_case.map do |letter|
-      if letter == letter.downcase
         @braille_alphabet[letter]
-      end
     end
   end
-
-
 
   def top
     out_top = ''
@@ -77,6 +73,7 @@ class Translator
         out_top << element[0]
     end
     out_top
+        binding.pry
   end
 
   def mid
@@ -96,7 +93,13 @@ class Translator
   end
 
   def braille_result
-    "#{top}\n#{mid}\n#{bottom}"
+    result = "#{top.slice(0..79) << "\n"}\n#{mid.slice(0..79) << "\n"}\n#{bottom.slice(0..79) << "\n"}"
+
+    # result
+    # if result.length >= 239
+
+    #   \n
+ # result.slice(0..79) << "\n"
   end
 
 end
