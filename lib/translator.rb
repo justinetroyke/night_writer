@@ -69,7 +69,7 @@ class Translator
     end
   end
 
-  
+
 
   def top
     out_top = ''
