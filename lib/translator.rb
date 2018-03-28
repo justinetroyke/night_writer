@@ -47,19 +47,6 @@ class Translator
     @input.split('')
   end
 
-  def line_break
-    message_length = split_message.length
-    message_count = 0
-    until message_length <= 40
-      message_count += 1
-      message_length * message_count = 
-          binding.pry
-      message_length -= 40
-    end
-    message_count += 1
-    message_length[message_count] = split_message
-  end
-
   def lower_case
     message_to_convert = []
     split_message.each do |letter|
@@ -86,6 +73,7 @@ class Translator
         out_top << element[0]
     end
     out_top
+        binding.pry
   end
 
   def mid
@@ -105,6 +93,13 @@ class Translator
   end
 
   def braille_result
-      result = "#{top}\n#{mid}\n#{bottom}"
+    result = "#{top.slice(0..79) << "\n"}\n#{mid.slice(0..79) << "\n"}\n#{bottom.slice(0..79) << "\n"}"
+
+    # result
+    # if result.length >= 239
+
+    #   \n
+ # result.slice(0..79) << "\n"
   end
+
 end

@@ -83,7 +83,7 @@ class TranslatorTest < Minitest::Test
     assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator.braille_result
   end
 
-  def test_message_is_all_lowercase_and_has_shift_for_capitals
+  def test_message_is_all_lowercase_and_has_shift_for_capital
     translator = Translator.new("Ab")
 
     assert_equal ["shift","a","b"], translator.lower_case
@@ -113,21 +113,11 @@ class TranslatorTest < Minitest::Test
     assert_equal "............\n00..0...000.\n0.0...00.000", translator.braille_result
   end
 
-  def test_it_translates_40_english_chars_at_a_time
-    translator = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-
-    assert_equal ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-      "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-      "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a""\n""a"], translator.line_break
-  end
-
-  def test_it_breaks_at_78_characters
-    skip
-    translator = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-
-    assert_equal "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.
-    0.0.0.0.0.0.0.0.0.\n........................................................
-    ........................\n..................................................
-    ..............................\n0.\n..\n..", translator.braille_result
-  end
+ #  def test_the_wide_is_no_more_than_80
+ #    skip
+ #    translator = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+ #    expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n0.\n..\n..\n"
+ #
+ #    assert_equal expected, translator.braille_result
+ # end
 end
