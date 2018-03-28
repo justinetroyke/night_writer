@@ -69,6 +69,8 @@ class Translator
     end
   end
 
+  
+
   def top
     out_top = ''
     convert_to_braille.each do |element|
