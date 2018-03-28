@@ -113,11 +113,12 @@ class TranslatorTest < Minitest::Test
     assert_equal "............\n00..0...000.\n0.0...00.000", translator.braille_result
   end
 
- #  def test_the_wide_is_no_more_than_80
- #    skip
- #    translator = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
- #    expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n0.\n..\n..\n"
- #
- #    assert_equal expected, translator.braille_result
- # end
+  def test_the_wide_is_no_more_than_80
+    translator = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n0."
+
+    assert_equal expected, translator.top
+ end
 end
+
+# n................................................................................\n................................................................................\n..\n..\n

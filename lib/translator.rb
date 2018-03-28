@@ -1,10 +1,16 @@
 class Translator
 
   attr_reader :input,
-              :braille_alphabet
+              :braille_alphabet,
+              :formatted_top,
+              :formatted_mid,
+              :formatted_bottom
 
   def initialize(input)
     @input = input
+    @formatted_top = []
+    @formatted_mid =[]
+    @formatted_bottom =[]
     @braille_alphabet = {
       "a"=>['0.','..','..'],
       "b"=>['0.','0.','..'],
@@ -73,7 +79,6 @@ class Translator
         out_top << element[0]
     end
     out_top
-        binding.pry
   end
 
   def mid
@@ -93,13 +98,9 @@ class Translator
   end
 
   def braille_result
-    result = "#{top.slice(0..79) << "\n"}\n#{mid.slice(0..79) << "\n"}\n#{bottom.slice(0..79) << "\n"}"
-
-    # result
-    # if result.length >= 239
-
-    #   \n
- # result.slice(0..79) << "\n"
+    result = []
+    result << top
+    result << mid
+    result << bottom
   end
-
 end
