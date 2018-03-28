@@ -33,7 +33,13 @@ class Translator
       "y"=>['00','.0','00'],
       "z"=>['0.','.0','00'],
       " "=>['..','..','..'],
-      "shift"=>['..','..','.0']
+      "shift"=>['..','..','.0'],
+      "?"=>['..','0.','00'],
+      "'"=>['..','..','0.'],
+      "!"=>['..','00','0.'],
+      ","=>['..','0.','..'],
+      "."=>['..','00','.0'],
+      "-"=>['..','..','00']
     }
   end
 
@@ -63,6 +69,8 @@ class Translator
     end
   end
 
+
+
   def top
     out_top = ''
     convert_to_braille.each do |element|
@@ -90,4 +98,5 @@ class Translator
   def braille_result
     "#{top}\n#{mid}\n#{bottom}"
   end
+
 end
