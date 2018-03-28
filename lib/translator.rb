@@ -47,6 +47,19 @@ class Translator
     @input.split('')
   end
 
+  def line_break
+    message_length = split_message.length
+    message_count = 0
+    until message_length <= 40
+      message_count += 1
+      message_length * message_count = 
+          binding.pry
+      message_length -= 40
+    end
+    message_count += 1
+    message_length[message_count] = split_message
+  end
+
   def lower_case
     message_to_convert = []
     split_message.each do |letter|
@@ -63,13 +76,9 @@ class Translator
 
   def convert_to_braille
     braille_code = lower_case.map do |letter|
-      if letter == letter.downcase
         @braille_alphabet[letter]
-      end
     end
   end
-
-
 
   def top
     out_top = ''
@@ -96,7 +105,6 @@ class Translator
   end
 
   def braille_result
-    "#{top}\n#{mid}\n#{bottom}"
+      result = "#{top}\n#{mid}\n#{bottom}"
   end
-
 end
