@@ -94,4 +94,10 @@ class TranslatorTest < Minitest::Test
 
      assert_equal "..0.\n....\n.0..", translator.braille_result
    end
+
+   def test_that_braille_lines_do_not_exceed_78_characters
+     translator = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+     assert_equal 41, 
+   end
 end
