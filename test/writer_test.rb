@@ -8,20 +8,20 @@ require 'pry'
 class WriterTest < Minitest::Test
 
   def test_it_exists
-    writer = Printer.new(["..", "0.", "00"])
+    writer = Writer.new(["..", "0.", "00"])
 
-    assert Writer, Writer
+    assert Writer, writer
   end
 
   def test_it_initializes_with_braille_array
-    Writer = Writer.new(["..", "0.", "00"])
+    writer = Writer.new(["..", "0.", "00"])
 
-    assert_equal ["..", "0.", "00"], printer.braille_message
+    assert_equal ["..", "0.", "00"], writer.braille_message
   end
 
   def test_it_turn_each_array_into_three_lines
     writer = Writer.new(["..", "0.", "00"])
 
-
+    assert_equal "..", writer.write_braille
   end
 end
