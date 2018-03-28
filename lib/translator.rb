@@ -42,6 +42,9 @@ class Translator
       "-"=>['..','..','00']
     }
   end
+  ..
+  ..
+  ..
 
   def split_message
     @input.split('')

@@ -6,10 +6,45 @@ require 'pry'
 
 class BrailleTranslatorTest < Minitest::Test
 
-  def test_class_exists_and_takes_input
-    translator = BrailleTranslator.new("0.00..0..0..0.0.0.")
+ def test_class_exists_and_takes_input
+   translator = BrailleTranslator.new("0.00..0..0..0.0.0.")
 
-    assert_instance_of BrailleTranslator, translator
-    assert_equal "0.00..0..0..0.0.0.", translator.input
-  end
+   assert_instance_of BrailleTranslator, translator
+   assert_equal "0.00..0..0..0.0.0.", translator.input
+ end
+
+ def test_scan_string
+   translator = BrailleTranslator.new("0.00..0..0..")
+
+   assert_equal ["0.", "00", "..", "0.", ".0", ".."], translator.scan_string
+ end
+
+ def test_slice_array
+   translator = BrailleTranslator.new("0.00..0..0..")
+
+   assert_equal ["0.", "00"]["..", "0."][".0", ".."], translator.slice_array
+ end
+
+ def test_even_slicing
+   skip
+   translator = BrailleTranslator.new("0.00..0..0..")
+
+   assert_equal 3, translator.slice_sting_into_even_segments
+ end
+
+
+ def test_translator_takes_two_chars_of_string
+   skip
+   translator = BrailleTranslator.new("0.00..0..0..")
+
+   assert_equal ["0."], ["00"], [".."], ["0."], [".0"], [".."], translator.divide_into_three
+ end
+
+ def group_every_third
+   skip
+
+ end
+
+
+
 end
