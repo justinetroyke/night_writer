@@ -50,25 +50,28 @@ class BrailleTranslator
    @input.scan(/.{1,#{number}}/)
  end
 
- def file_thirds
-   @top = []
-   @mid = []
-   @bottom = []
-   @top << split.fetch(0)
-   @mid << split.fetch(1)
-   @bottom << split.fetch(2)
+ def top
+   out_top = []
+   out_top << split.fetch(0).scan(/../)
+   return out_top.flatten
  end
 
- def scan_all_strings
-   @top.scan(/../)
-   @mid.scan(/../)
-   @bottom.scan(/../)
+ def mid
+   out_mid = []
+   out_mid << split.fetch(1).scan(/../)
+   return out_mid.flatten
+ end
+
+ def bottom
+   out_bottom = []
+   out_bottom << split.fetch(2).scan(/../)
+   return out_bottom.flatten
  end
 
 
- # def english_result
- #   result = chunk
- # end
+ def english_result
+   result = "#{top}#{mid}#{bottom}"
+ end
 
 
 

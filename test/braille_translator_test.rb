@@ -19,49 +19,19 @@ class BrailleTranslatorTest < Minitest::Test
    assert_equal ["0.00", "..0.", ".0.."], translator.split
  end
 
- def test_new_arrays_assigned_to_new_variables
-   translator = BrailleTranslator.new("0.00..0..0..")
-
-   assert_equal [".0.."], translator.file_thirds
- end
-
  def scan_all_strings
    translator = BrailleTranslator.new("0.00..0..0..")
 
-   assert_equal [".0",".."], translator.scan_all_strings
+   assert_equal ["0.", "00"], translator.top
+   assert_equal ["..", "0."], translator.mid
+   assert_equal [".0", ".."], translator.bottom
  end
 
- # def test_scan_string
- #   translator = BrailleTranslator.new("0.00..0..0..")
- #
- #   assert_equal , translator.scan_string
- # end
- #
- # def test_slice_array
- #   translator = BrailleTranslator.new("0.00..0..0..")
- #
- #   assert_equal ["0.", "00"]["..", "0."][".0", ".."], translator.slice_array
- # end
+ def zip_strings_into_braille_equivalent
+   skip
+ end
 
- # def test_even_slicing
- #   skip
- #   translator = BrailleTranslator.new("0.00..0..0..")
- #
- #   assert_equal 3, translator.slice_sting_into_even_segments
- # end
- #
- #
- # def test_translator_takes_two_chars_of_string
- #   skip
- #   translator = BrailleTranslator.new("0.00..0..0..")
- #
- #   assert_equal ["0."], ["00"], [".."], ["0."], [".0"], [".."], translator.divide_into_three
- # end
- #
- # def group_every_third
- #   skip
- #
- # end
+
 
 
 
