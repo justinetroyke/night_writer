@@ -30,7 +30,7 @@ class BrailleTranslatorTest < Minitest::Test
  def zip_strings_into_braille_equivalent
    translator = BrailleTranslator.new("0.00..0..0..")
 
-   assert_equal ["0.","..",".0"]["00", "0.", ".."], translator.zip_correct_characters_together
+   assert_equal ["0.","..",".0"]["00", "0.", ".."], translator.zip_characters_together
  end
 
  def convert_zipped_arrays_to_english
