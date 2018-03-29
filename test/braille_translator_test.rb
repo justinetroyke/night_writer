@@ -7,10 +7,28 @@ require 'pry'
 class BrailleTranslatorTest < Minitest::Test
 
  def test_class_exists_and_takes_input
-   translator = BrailleTranslator.new("0.00\n..0.\n.0..0")
+   translator = BrailleTranslator.new("0.00..0..0..0")
 
    assert_instance_of BrailleTranslator, translator
-   assert_equal "0.00..0..0..0.0.0.", translator.input
+   assert_equal "0.00..0..0..0", translator.input
+ end
+
+ def test_splits_string_into_thirds_in_new_array
+   translator = BrailleTranslator.new("0.00..0..0..")
+
+   assert_equal ["0.00", "..0.", ".0.."], translator.split
+ end
+
+ def test_new_arrays_assigned_to_new_variables
+   translator = BrailleTranslator.new("0.00..0..0..")
+
+   assert_equal [".0.."], translator.file_thirds
+ end
+
+ def scan_all_strings
+   translator = BrailleTranslator.new("0.00..0..0..")
+
+   assert_equal [".0",".."], translator.scan_all_strings
  end
 
  # def test_scan_string

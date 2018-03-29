@@ -45,15 +45,30 @@ class BrailleTranslator
  end
 
 
- def chunk
-   @input.scan(/.{1,#{32}}/)
+ def split
+   number = (@input.length / 3)
+   @input.scan(/.{1,#{number}}/)
+ end
+
+ def file_thirds
+   @top = []
+   @mid = []
+   @bottom = []
+   @top << split.fetch(0)
+   @mid << split.fetch(1)
+   @bottom << split.fetch(2)
+ end
+
+ def scan_all_strings
+   @top.scan(/../)
+   @mid.scan(/../)
+   @bottom.scan(/../)
  end
 
 
-
- def english_result
-   result = chunk
- end
+ # def english_result
+ #   result = chunk
+ # end
 
 
 
