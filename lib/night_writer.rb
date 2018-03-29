@@ -5,15 +5,13 @@ file_text = File.open(ARGV[0], 'r')
 incoming_english = file_text.read.delete("\n")
 file_text.close
 
-<<<<<<< HEAD
 message = Translator.new(incoming_english)
 
 writer = File.open(ARGV[1], 'w')
 writer.write(message.braille_result)
 writer.close
 
-   #puts "Created '#{ARGV[1]}' containing #{to_translate.strip.length} characters"
-=======
+   #puts "Created '#{ARGV[1]}' containing #{to_translate.strip.length} characters
   file_text = File.open(ARGV[0], 'r')
   incoming_english = file_text.read.delete("\n")
   file_text.close
@@ -25,4 +23,3 @@ writer.close
   writer.close
 
    # puts "Created '#{ARGV[1]}' containing #{to_translate.strip.length} characters"
->>>>>>> dec23278642f521cff2e6395d77b6a8f72416d43
