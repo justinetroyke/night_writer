@@ -68,9 +68,15 @@ class BrailleTranslator
    return out_bottom.flatten
  end
 
+ def zip_correct_characters_together
+   top.zip(mid, bottom)
+ end
+
+ 
+
 
  def english_result
-   result = "#{top}#{mid}#{bottom}"
+   result = zip_correct_characters_together
  end
 
 
