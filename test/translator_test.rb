@@ -60,27 +60,27 @@ class TranslatorTest < Minitest::Test
   def test_it_outputs_a_6_x_3_grid_for_two_letters
     translator = Translator.new("he")
 
-    assert_equal "0.0.\n00.0\n....", translator.braille_result
+    assert_equal ["0.0.","00.0","...."], translator.braille_result
   end
 
   def test_it_outputs_a_3_row_grid_for_a_word
     translator = Translator.new("hello")
 
-    assert_equal "0.0.0.0.0.\n00.00.0..0\n....0.0.0.", translator.braille_result
+    assert_equal ["0.0.0.0.0.","00.00.0..0","....0.0.0."], translator.braille_result
   end
 
   def test_it_can_space
     translator = Translator.new(" ")
     translator_2 = Translator.new("h e")
 
-    assert_equal "..\n..\n..", translator.braille_result
-    assert_equal "0...0.\n00...0\n......", translator_2.braille_result
+    assert_equal ["..","..",".."], translator.braille_result
+    assert_equal ["0...0.","00...0","......"], translator_2.braille_result
   end
 
   def test_it_outputs_3_row_grid_for_phrase
     translator = Translator.new("hello world")
 
-    assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...", translator.braille_result
+    assert_equal ["0.0.0.0.0....00.0.0.00","00.00.0..0..00.0000..0","....0.0.0....00.0.0..."], translator.braille_result
   end
 
   def test_message_is_all_lowercase_and_has_shift_for_capital
@@ -92,7 +92,7 @@ class TranslatorTest < Minitest::Test
   def test_it_capitalizes_one_letter
     translator = Translator.new("A")
 
-    assert_equal "..0.\n....\n.0..", translator.braille_result
+    assert_equal ["..0.", "....", ".0.."], translator.braille_result
   end
 
   def test_it__can_convert_a_symbol
@@ -101,7 +101,6 @@ class TranslatorTest < Minitest::Test
     assert_equal "..", translator.top
     assert_equal "0.", translator.mid
     assert_equal "00", translator.bottom
-    assert_equal "..\n0.\n00", translator.braille_result
   end
 
   def test_it_can_convert_all_symbols
@@ -110,15 +109,5 @@ class TranslatorTest < Minitest::Test
     assert_equal "............", translator.top
     assert_equal "00..0...000.", translator.mid
     assert_equal "0.0...00.000", translator.bottom
-    assert_equal "............\n00..0...000.\n0.0...00.000", translator.braille_result
   end
-
-  def test_the_wide_is_no_more_than_80
-    translator = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n0."
-
-    assert_equal expected, translator.top
- end
 end
-
-# n................................................................................\n................................................................................\n..\n..\n

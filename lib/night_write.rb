@@ -14,4 +14,4 @@ require 'pry'
   writer.write(output_message.write_braille)
   writer.close
 
-   # puts "Created '#{ARGV[1]}' containing #{to_translate.strip.length} characters"
+   puts "Created '#{ARGV[1]}' containing #{output_message.write_braille.length} characters"
