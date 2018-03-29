@@ -1,3 +1,5 @@
+require 'pry'
+
 class BrailleTranslator
 
  attr_reader :input
@@ -42,12 +44,15 @@ class BrailleTranslator
     }
  end
 
- def scan_string
-   new_array = @input.scan(/../)
+
+ def chunk
+   @input.scan(/.{1,#{32}}/)
  end
 
- def slice_array
-   scan_string.each_slice(3){|group| group}
+
+
+ def english_result
+   result = chunk
  end
 
 
